@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     before_action :find_user, only: [:show, :edit, :update, :destroy, :edit_password, :update_password]
     before_action :correct_user, only: [:edit, :update]
-
+    
     before_action :authorize!, only: [:index]
 
     def new
@@ -12,14 +12,29 @@ class UsersController < ApplicationController
     def create
         @user = User.new user_params
 
-        if @user.save 
-            session[:user_id] = @user.id
+        if @user.save && current_user.is_admin=true
+            flash[:notice] = 'Guest successfully added.'
             redirect_to root_path
         else
             render :new
         end
     end
 
+    def index
+        @users = User.all
+    end
+
+    
+    def destroy
+        if (current_user.is_admin=false)
+            flash[:notice] = 'Only admin is authorized to do this.'
+            redirect_to(root_path)
+        else
+            @user.destroy
+            flash[:notice] = `Guest removed from guest list.`
+            redirect_to users_path
+        end
+    end
 
     private
 
@@ -27,12 +42,6 @@ class UsersController < ApplicationController
         params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 
-
-
-    # def index
-    #     redirect_to root_path unless can?(:index, current_user)
-    #     @users = User.all
-    # end
 
     # def show
     #     redirect_to root_path unless can?(:show, current_user)
@@ -90,16 +99,6 @@ class UsersController < ApplicationController
     #       end
     #     end
 
-    # def destroy
-    #     if (current_user.is_admin=false)
-    #         flash[:notice] = 'Only admin is authorized to do this.'
-    #         redirect_to(root_path)
-    #     else
-    #         @user.destroy
-    #         flash[:notice] = `Guest removed from guest list.`
-    #         redirect_to users_path
-    #     end
-    # end
 
     # def filter
     #     @users= User.all
@@ -114,12 +113,13 @@ class UsersController < ApplicationController
     #     @user = User.find(params[:id])
     # end
 
-    # def correct_user
-    #     redirect_to(root_path) unless (current_user== @user||
-    #     current_user.is_admin=true)
-    # end
+     def correct_user
+         redirect_to(root_path) unless (current_user== @user||
+         current_user.is_admin=true)
+     end
 
-    # def authorize!
-    #     # redirect_to root_path unless can?(:index, current_user)
-    # end
+
+    def authorize!
+         redirect_to root_path unless can?(:index, current_user)
+    end
 end

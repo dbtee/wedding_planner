@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users</h1>
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+    <th scope="col">Role</th>
+    <th scope="col">Email</th>
+    <th scope="col">Name</th>
+    <th scope="col">Phone</th>
+    <th scope="col" class="user-status">Status</th>
+    <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+
+        <% if can? :index, user%>
+          <tr>
+          <td class="td-user-role">
+          <% if user.is_admin? %>
+            Admin
+          <% else %>
+            Guest
+          <% end %></td>
+            <td class="td-user-email"><%= user.email %></td>
+            <td class="td-user-name"><%= user.first_name %> <%= user.last_name %></td>
+            <td class="td-user-phone"><%= user.phone %></td>
+
+
+            <% if can? :edit, user%>
+            <%= link_to 'Edit', edit_user_path(user), class: "btn btn-secondary btn-sm" %>
+            <% end %>
+            <% if can? :edit, user%>
+            <%= link_to 'Destroy', user, method: :destroy, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary btn-sm" %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New User', new_user_path, class: 'btn btn-maroon' %>
+<br>
