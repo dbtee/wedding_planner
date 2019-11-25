@@ -2,7 +2,7 @@ class User < ApplicationRecord
     
     has_secure_password
 
-    # validates :email, uniqueness: true,format: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+    # validates :email, uniqueness: true, format: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
     validates :first_name, presence: true
     validates :last_name, presence: true
     # validates :phone, length: { minimum: 10 }

@@ -12,6 +12,12 @@ super_user = User.create(
   first_name: "Dustin",
   last_name: "Tobin",
   password: "wew",
-  is_admin: true
+  is_admin: true,
+  rsvp: 1,
+  allergies: "None",
+  nationality: "Canadian",
+  email: "nice@meme.gov",
+  phone: "9999999999"
+
 )
 

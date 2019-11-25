@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container d-flex flex-sm-column flex-md-row justify-content-center">
+  <div class="user-show">
+
+
+  <div class="user-show" id="user-info">
+    <p>
+      <strong>First name:</strong>
+      <%= @user.first_name %>
+    </p>
+    
+    <p>
+      <strong>Last name:</strong>
+      <%= @user.last_name %>
+    </p>
+
+    <% if current_user.is_admin? %>
+    <p>
+      <strong>User type:</strong>
+      <% if @user.is_admin = false %>
+        Guest
+      <% else %>
+        Admin
+      <% end %>
+    </p>
+    <% end %>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+
+    <p>
+      <strong>Phone:</strong>
+      <%= @user.phone %>
+    </p>
+
+
+    <p>
+      <strong>Attending:</strong>
+      <% if @user.rsvp == 1 %>
+        <span class="active">Attending</span> 
+      <% elsif @user.rsvp == 2 %>
+        <span class="inactive">Not Attending</span>
+      <% else %>
+        <span> No Response</span>
+      <% end %>
+    </p>
+
+    <p>
+    <strong>Allergies or Special Requests:</strong>
+    <%= @user.allergies %>
+  </p>
+    
+    
+  </div> 
+</div>
+<% if can? :edit, @user %>
+  <div class="text-center py-5">
+      <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-secondary btn-sm" %>
+  </div>
+<%end%>

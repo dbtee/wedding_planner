@@ -22,9 +22,11 @@
     <nav>
       <%= link_to "Home", root_path %>
       <% if current_user && current_user.is_admin? %>
-      |<%= link_to "Add guest", new_user_path %>
-      |<%= link_to "Guest list", users_path %>
-
+      | <%= link_to "Add guest", new_user_path %>
+      | <%= link_to "Guest list", users_path %>
+      <% end %>
+      <% if current_user %>
+      | <%= link_to "Edit Guest Details", edit_user_path(current_user) %>
       <% end %>
     </nav>
 

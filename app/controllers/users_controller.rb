@@ -24,15 +24,38 @@ class UsersController < ApplicationController
         @users = User.all
     end
 
-    
-    def destroy
-        if (current_user.is_admin=false)
-            flash[:notice] = 'Only admin is authorized to do this.'
-            redirect_to(root_path)
+    def show
+        redirect_to root_path unless can?(:show, current_user)
+    end
+
+    def edit
+        redirect_to root_path unless can?(:update, current_user)
+    end
+
+    def update
+        updating_user = User.find_by(id: params.require(:id))
+        redirect_to root_path unless can?(:update, updating_user)
+
+        if(current_user.is_admin? && updating_user.update(user_params))
+            flash[:notice] = 'Guest changes saved.'
+            redirect_to user_path(updating_user)
+        elsif(current_user.update(params.require(:user).permit(:email,  :phone, :nationality, :allergies, :rsvp)))
+        flash[:notice] = 'Profile changes saved.'
         else
+            render :edit
+        end
+    end
+
+
+    def destroy
+        if (current_user.is_admin?)
             @user.destroy
-            flash[:notice] = `Guest removed from guest list.`
+            flash[:notice] = "Guest removed from guest list."
             redirect_to users_path
+
+        else
+            flash[:notice] = 'Only admin is authorized to do this.'
+                redirect_to(root_path)
         end
     end
 
@@ -43,16 +66,10 @@ class UsersController < ApplicationController
     end
 
 
-    # def show
-    #     redirect_to root_path unless can?(:show, current_user)
-    # end
+
 
     # def new
     #     redirect_to root_path unless can?(:create, current_user)
-    # end
-
-    # def edit
-    #     redirect_to root_path unless can?(:update, current_user)
     # end
 
     # def create
@@ -65,20 +82,7 @@ class UsersController < ApplicationController
     #     end
     # end
 
-    # def update
-    #     updating_user = User.find_by(id: params.require(:id))
-    #     redirect_to root_path unless can?(:update, updating_user)
-
-    #     if(current_user.is_admin=true && updating_user.update(user_params))
-    #         flash[:notice] = 'Guest changes saved.'
-    #         redirect_to user_path(updating_user)
-    #     elsif(current_user.update(params.require(:user).permit(:email, :first_name, :last_name, :phone, :nationality, :allergies, :rsvp)))
-    #     flash[:notice] = 'Profile changes saved.'
-    #     else
-    #         render :edit
-    #     end
-    # end
-
+   
     # def edit_password
     #     redirect_to root_path unless can?(:edit_password, current_user)
     # end
@@ -109,15 +113,18 @@ class UsersController < ApplicationController
 
     # private
 
-    # def find_user
-    #     @user = User.find(params[:id])
-    # end
+    def find_user
+        @user = User.find(params[:id])
+    end
 
      def correct_user
          redirect_to(root_path) unless (current_user== @user||
          current_user.is_admin=true)
      end
 
+     def user_params
+        params.require(:user).permit(:rsvp, :email, :first_name, :last_name, :password, :allergies, :phone, :is_admin)
+      end
 
     def authorize!
          redirect_to root_path unless can?(:index, current_user)

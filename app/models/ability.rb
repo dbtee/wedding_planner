@@ -5,6 +5,10 @@ class Ability
 
   def initialize(user)
      
+    if user.present?
+      can :update, User, id: user.id 
+      can :edit, User, id: user.id
+    end
         user ||= User.new # guest user (not logged in)
          if user.is_admin?
            can :crud, :all

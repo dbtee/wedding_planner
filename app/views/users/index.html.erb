@@ -6,10 +6,12 @@
   <thead class="thead-light">
     <tr>
     <th scope="col">Role</th>
-    <th scope="col">Email</th>
     <th scope="col">Name</th>
+    <th scope="col">Nationality</th>
+    <th scope="col">Email</th>
     <th scope="col">Phone</th>
-    <th scope="col" class="user-status">Status</th>
+    <th scope="col" class="user-status">Attending</th>
+    <th scope="col">Allergies</th>
     <th scope="col">Actions</th>
     </tr>
   </thead>
@@ -24,16 +26,38 @@
           <% else %>
             Guest
           <% end %></td>
+
+            <% if can? :show, user%>
+            <td><%= link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %>
+            <% end %>
+
+            <td class="td-user-nationality"><%= user.nationality %></td>
             <td class="td-user-email"><%= user.email %></td>
-            <td class="td-user-name"><%= user.first_name %> <%= user.last_name %></td>
             <td class="td-user-phone"><%= user.phone %></td>
+            <td class="td-user-rsvp">
+            <% if user.rsvp == 1 %>
+                Attending
+            <% elsif user.rsvp == 2 %>
+                Not Attending
+            <% else %>
+                No Response
+            <% end %> 
+            </td>
 
+            <td class="td-user-allergies">
+            <% if user.allergies == "None" %>
+                None
+            <% else %>
+                Yes
+            <% end %> 
+            </td>
 
+            <td class="td-user-actions">
             <% if can? :edit, user%>
             <%= link_to 'Edit', edit_user_path(user), class: "btn btn-secondary btn-sm" %>
             <% end %>
             <% if can? :edit, user%>
-            <%= link_to 'Destroy', user, method: :destroy, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary btn-sm" %></td>
+            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary btn-sm" %></td>
             <% end %>
           </tr>
         <% end %>
