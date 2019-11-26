@@ -1,14 +1,32 @@
-<h1>Sign In</h1>
+<script>
 
-<%= form_with url: session_path, local: true do |f| %>
-    <div>
+$(document).ready(function(){
+    $(".welcome-h1 .rotate").textrotator({
+animation: "dissolve",
+speed: 8000
+})
+})
+</script>
+
+<div class="login-body">
+<div class="login-body-bg"></div>
+
+<div class="form-card">
+
+
+<h1 class="welcome-h1"><span class= "rotate">Welcome, ようこそ</span></h1>
+
+<%= form_with url: session_path, class: "sign-in-container", local: true do |f| %>
+
     <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-    </div>
+    <%= f.text_field :last_name, placeholder: "苗字" %>
 
-    <div>
     <%= f.label :password %>
-    <%= f.password_field :password %>
-    </div>
-    <%= f.submit "Sign In" %>
+    <%= f.password_field :password, placeholder: "パスワード" %>
+    <br>
+    <%= button_tag(type: 'submit', class: "sign-in-btn", "data-hover" => "提出する", "data-active" => "I'M ACTIVE") do %>
+        <span class="icon-envelope">Submit</span>
+       <% end %>
 <% end %>
+</div>
+</div>

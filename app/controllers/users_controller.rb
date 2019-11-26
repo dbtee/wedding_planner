@@ -41,6 +41,7 @@ class UsersController < ApplicationController
             redirect_to user_path(updating_user)
         elsif(current_user.update(params.require(:user).permit(:email,  :phone, :nationality, :allergies, :rsvp)))
         flash[:notice] = 'Profile changes saved.'
+        
         else
             render :edit
         end

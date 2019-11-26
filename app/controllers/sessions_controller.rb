@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    
     def new
         @user = User.new
     end
@@ -6,9 +7,14 @@ class SessionsController < ApplicationController
     def create
         @user = User.new
         user = User.find_by_last_name params[:last_name]
-        if user.authenticate(params[:password])
+        if user&.authenticate(params[:password])
             session[:user_id] = user.id
+            
+            if user.is_admin? || user.rsvp > 0
             redirect_to root_path, notice: "Welcome " + user.first_name
+            else redirect_to edit_user_path(current_user)
+            end
+            
         else
             flash[:alert] = "Wrong name or password"
             render :new
@@ -20,9 +26,4 @@ class SessionsController < ApplicationController
         redirect_to root_path, notice: "See you soon!"
     end
 
-    def authenticate_user!
-        unless user_signed_in?
-            flash[:danger] = "Please enter your name and the password displayed on the invitation"
-        end
-    end
 end

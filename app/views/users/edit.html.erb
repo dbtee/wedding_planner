@@ -1,10 +1,17 @@
-<h1 class="text-center">Edit User</h1>
+<script>
+
+$(document).ready(function(){
+$('.edit-body-bg').animate({ opacity: 1 }, { duration: 3000 });
+});
 
 
-<div class="container d-flex flex-sm-column flex-md-row justify-content-center py-5">
+</script>
 
-  <div class="px-5">
-    <%= form_with(model: @user, local: true) do |form| %>
+<div class="edit-body">
+<div class="edit-body-bg"></div>
+<div class="guest-form-card">
+<h1 class="welcome-h1">Guest Info</h1>
+    <%= form_with(model: @user, class: "sign-up-container", local: true) do |form| %>
       <% if @user.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
@@ -18,60 +25,66 @@
       <% end %>
       
       <% if current_user.is_admin? %>
-      <div class="form-group">
+     
         <%= form.label :first_name %>
         <%= form.text_field :first_name, class: "form-control" %>
-      </div>
-    
-      <div class="form-group">
+      
+      <br>
+     
         <%= form.label :last_name %>
         <%= form.text_field :last_name, class: "form-control" %>
-      </div>
+      <br>
 
-      <div class="form-group">
-        <%= form.label :is_admin %>
-        <%= form.check_box :is_admin, class: "form-control" %>
-      </div>
+   
 
       <% else %>
       <span><%= current_user.full_name %> </span>
+      <br>
       <% end %>
       
-      <div class="form-group d-flex flex-row">
+      
       <%= form.label :nationality %>
+      <div class="select">
       <%= form.select :nationality, [['Canadian'], ['Japanese'], ['Other']], :class => "form-control" %>
-    </div>
-
-      <div class="form-group">
+      </div>
+      <br>
+     
         <%= form.label :email %>
         <%= form.text_field :email, class: "form-control" %>
-      </div>
+      <br>
     
-    
-      <div class="form-group">
         <%= form.label :phone %>
         <%= form.text_field :phone, class: "form-control" %>
-      </div>
+      <br>
     
-      <div class="form-group d-flex flex-row">
+   
         <%= form.label :rsvp %>
+        <div class="select">
         <%= form.select :rsvp, [['No Response', 0], ['Attending', 1], ['Not Attending', 2]], :class => "form-control" %>
       </div>
-
-      <div class="form-group">
+      <br>
+     
         <%= form.label :allergies %>
         <%= form.text_field :allergies, class: "form-control" %>
-      </div>
+      <br>
 
-      <div class="actions text-center">
-      <%= form.submit class: "btn-maroon"%>
+      <div class="is-admin">
+      <%= form.label :is_admin %>
+      <%= form.check_box :is_admin, class: "form-control" %>
     </div>
-    <% end %>
-  </div>
-</div>
+    <br>
+
+      <%= button_tag(type: 'submit', class: "sign-in-btn") do %>
+        Submit
+      <% end %>
+
+
 
 <% if current_user.is_admin? %>
 <div class="container">
   <%= link_to 'Back', users_path%>  
 </div>
 <% end %>
+<% end %>
+</div>
+</div>

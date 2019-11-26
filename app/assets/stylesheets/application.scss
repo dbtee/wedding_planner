@@ -1,0 +1,46 @@
+
+@import 'reset.css';
+@import 'sans-serif.css';
+@import 'serif-font.css';
+@import 'script-font.css';
+@import 'rotator.css';
+@import 'sign-in-btn.css';
+@import 'users.scss';
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+
+
+
+label {
+    font-family: 'Montserrat', sans-serif;
+    padding: .5em;
+}
+
+input {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2em;
+}
+
+nav {
+    font-family: 'Montserrat', sans-serif;
+    padding: 1em;
+}
+
+select {
+    background-color: white;
+    width: 7em;
+    height: 2em;
+    font-size: larger;
+    font-family: 'Cormorant Garamond', serif;
+}
