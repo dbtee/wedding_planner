@@ -8,9 +8,11 @@ $('.edit-body-bg').animate({ opacity: 1 }, { duration: 3000 });
 </script>
 
 <div class="edit-body">
+
 <div class="edit-body-bg"></div>
+
 <div class="guest-form-card">
-<h1 class="welcome-h1">Guest Info</h1>
+
     <%= form_with(model: @user, class: "sign-up-container", local: true) do |form| %>
       <% if @user.errors.any? %>
         <div id="error_explanation">
@@ -23,7 +25,8 @@ $('.edit-body-bg').animate({ opacity: 1 }, { duration: 3000 });
           </ul>
         </div>
       <% end %>
-      
+      <h1 class="edit-h1">Guest Info</h1>
+
       <% if current_user.is_admin? %>
      
         <%= form.label :first_name %>
@@ -38,7 +41,7 @@ $('.edit-body-bg').animate({ opacity: 1 }, { duration: 3000 });
    
 
       <% else %>
-      <span><%= current_user.full_name %> </span>
+      <h3 class= "name-h3"><%= current_user.full_name %> </h3>
       <br>
       <% end %>
       
@@ -68,11 +71,14 @@ $('.edit-body-bg').animate({ opacity: 1 }, { duration: 3000 });
         <%= form.text_field :allergies, class: "form-control" %>
       <br>
 
+
+<% if current_user.is_admin? %>
       <div class="is-admin">
       <%= form.label :is_admin %>
       <%= form.check_box :is_admin, class: "form-control" %>
     </div>
     <br>
+<% end %>
 
       <%= button_tag(type: 'submit', class: "sign-in-btn") do %>
         Submit
@@ -86,5 +92,6 @@ $('.edit-body-bg').animate({ opacity: 1 }, { duration: 3000 });
 </div>
 <% end %>
 <% end %>
+
 </div>
 </div>

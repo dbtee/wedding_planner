@@ -13,15 +13,15 @@
   <body>
   <%= flash[:notice] || flash[:alert] %> 
   <% unless controller_name == "sessions" %>
+  <% if user_signed_in? && @user.rsvp > 0 || @user.is_admin? %>
   <nav>
-    <% if user_signed_in?%>
+  <% if user_signed_in? %>
       Hello <%= current_user.full_name %>,
       <%= link_to "Logout", session_path, method: :delete, 
       data: {confirm: "Are you sure you want to log out?"}%>
-    <%else%>
-      <%= link_to "Login", new_session_path %> |
-    <% end %>
-
+      <% else %>
+      <%= link_to "Login", new_session_path %>
+      <% end %>
       <%= link_to "Home", root_path %>
       <% if current_user && current_user.is_admin? %>
        <%= link_to "Add guest", new_user_path %>
@@ -29,10 +29,11 @@
       <% end %>
       <% if current_user %>
        <%= link_to "Edit Guest Details", edit_user_path(current_user) %>
+ 
       <% end %>
-      <% end %>
+    <% end %>
+<% end %>
     </nav>
-
 
     <%= yield %>
   </body>
