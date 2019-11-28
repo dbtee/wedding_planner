@@ -176,6 +176,10 @@ $(document).ready(() => {
     }
     
   }(window.jQuery);
+
+  !function($){
+    $( ".welcome-h1")
+  }
   });
 
 

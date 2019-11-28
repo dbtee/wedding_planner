@@ -41,7 +41,7 @@ class UsersController < ApplicationController
             redirect_to user_path(updating_user)
         elsif(current_user.update(params.require(:user).permit(:email,  :phone, :nationality, :allergies, :rsvp)))
         flash[:notice] = 'Profile changes saved.'
-        
+        redirect_to 
         else
             render :edit
         end
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:full_name, :email, :password, :password_confirmation)
     end
 
 
@@ -124,7 +124,7 @@ class UsersController < ApplicationController
      end
 
      def user_params
-        params.require(:user).permit(:rsvp, :email, :first_name, :last_name, :password, :allergies, :phone, :is_admin)
+        params.require(:user).permit(:rsvp, :email, :full_name, :password, :allergies, :phone, :is_admin)
       end
 
     def authorize!

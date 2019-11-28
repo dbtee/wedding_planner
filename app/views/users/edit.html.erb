@@ -4,13 +4,10 @@ $(document).ready(function(){
 $('.edit-body-bg').animate({ opacity: 1 }, { duration: 3000 });
 });
 
-
 </script>
 
+<div class="edit-body-bg">
 <div class="edit-body">
-
-<div class="edit-body-bg"></div>
-
 <div class="guest-form-card">
 
     <%= form_with(model: @user, class: "sign-up-container", local: true) do |form| %>
@@ -28,54 +25,53 @@ $('.edit-body-bg').animate({ opacity: 1 }, { duration: 3000 });
       <h1 class="edit-h1">Guest Info</h1>
 
       <% if current_user.is_admin? %>
-     
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name, class: "form-control" %>
-      
-      <br>
-     
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name, class: "form-control" %>
-      <br>
 
-   
+     <div class="field-wrap">
+        <%= form.label :full_name %>
+        <%= form.text_field :full_name, class: "text-field" %>
+      </div>
+      <br>
 
       <% else %>
       <h3 class= "name-h3"><%= current_user.full_name %> </h3>
       <br>
       <% end %>
       
-      
+      <div class="field-wrap">
       <%= form.label :nationality %>
-      <div class="select">
-      <%= form.select :nationality, [['Canadian'], ['Japanese'], ['Other']], :class => "form-control" %>
+      <%= form.select :nationality, [['Canadian'], ['Japanese'], ['Other']], :class => "select" %>
       </div>
       <br>
      
+      <div class="field-wrap">
         <%= form.label :email %>
-        <%= form.text_field :email, class: "form-control" %>
+        <%= form.text_field :email, class: "text-field" %>
       <br>
+      </div>
     
+      <div class="field-wrap">
         <%= form.label :phone %>
-        <%= form.text_field :phone, class: "form-control" %>
+        <%= form.text_field :phone, class: "text-field" %>
       <br>
+      </div>
     
-   
+      <div class="field-wrap">
         <%= form.label :rsvp %>
-        <div class="select">
-        <%= form.select :rsvp, [['No Response', 0], ['Attending', 1], ['Not Attending', 2]], :class => "form-control" %>
+        <%= form.select :rsvp, [['No Response', 0], ['Attending', 1], ['Not Attending', 2]], :class => "select" %>
       </div>
       <br>
      
+      <div class="field-wrap">
         <%= form.label :allergies %>
-        <%= form.text_field :allergies, class: "form-control" %>
+        <%= form.text_field :allergies, class: "text-field" %>
+      </div>
       <br>
 
 
 <% if current_user.is_admin? %>
-      <div class="is-admin">
-      <%= form.label :is_admin %>
-      <%= form.check_box :is_admin, class: "form-control" %>
+      <div class="field-wrap">
+        <%= form.label :is_admin %>
+        <%= form.check_box :is_admin, class: "text-field" %>
     </div>
     <br>
 <% end %>
@@ -92,6 +88,6 @@ $('.edit-body-bg').animate({ opacity: 1 }, { duration: 3000 });
 </div>
 <% end %>
 <% end %>
-
+</div>
 </div>
 </div>

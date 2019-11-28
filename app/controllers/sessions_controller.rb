@@ -6,12 +6,12 @@ class SessionsController < ApplicationController
 
     def create
         @user = User.new
-        user = User.find_by_last_name params[:last_name]
+        user = User.find_by_full_name params[:full_name]
         if user&.authenticate(params[:password])
             session[:user_id] = user.id
             
             if user.is_admin? || user.rsvp > 0
-            redirect_to root_path, notice: "Welcome " + user.first_name
+            redirect_to root_path, notice: "Welcome " + user.full_name
             else redirect_to edit_user_path(current_user)
             end
             

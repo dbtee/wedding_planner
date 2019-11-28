@@ -9,8 +9,7 @@
 
 
 super_user = User.create(
-  first_name: "Dustin",
-  last_name: "Tobin",
+  full_name: "Dustin Tobin",
   password: "wew",
   is_admin: true,
   rsvp: 1,

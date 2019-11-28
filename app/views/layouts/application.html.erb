@@ -10,10 +10,10 @@
     <%= javascript_pack_tag 'application' %>
   </head>
 
-  <body>
+  <body class="lang-ja">
   <%= flash[:notice] || flash[:alert] %> 
   <% unless controller_name == "sessions" %>
-  <% if user_signed_in? && @user.rsvp > 0 || @user.is_admin? %>
+  <% if user_signed_in? || @user.is_admin? %>
   <nav>
   <% if user_signed_in? %>
       Hello <%= current_user.full_name %>,

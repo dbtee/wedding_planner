@@ -6,6 +6,7 @@
 @import 'rotator.css';
 @import 'sign-in-btn.css';
 @import 'users.scss';
+@import 'welcome.scss';
 
 *,
 *:before,
@@ -18,11 +19,14 @@
 label {
     font-family: 'Montserrat', sans-serif;
     padding: .5em;
+    
 }
 
 input {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2em;
+    text-align: center;
+
 }
 
 nav {
@@ -31,9 +35,21 @@ nav {
 }
 
 select {
-    background-color: white;
+    background-color: whitesmoke;
     width: 7em;
     height: 2em;
     font-size: larger;
     font-family: 'Cormorant Garamond', serif;
+    margin-left: auto;
 }
+
+body {
+    height: auto;
+}
+
+.text-field {
+    border: transparent;
+    border-bottom: 1px solid gray;
+    background-color: whitesmoke;
+}
+

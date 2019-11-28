@@ -1,5 +1,6 @@
 <script>
 
+
 $(document).ready(function(){
     $(".welcome-h1 .rotate").textrotator({
 animation: "dissolve",
@@ -18,8 +19,8 @@ speed: 8000
 
 <%= form_with url: session_path, class: "sign-in-container", local: true do |f| %>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, placeholder: "苗字" %>
+    <%= f.label :full_name %>
+    <%= f.text_field :full_name, placeholder: "名前と苗字" %>
 
     <%= f.label :password %>
     <%= f.password_field :password, placeholder: "パスワード" %>
