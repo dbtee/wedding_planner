@@ -14,27 +14,31 @@
   <%= flash[:notice] || flash[:alert] %> 
   <% unless controller_name == "sessions" %>
   <% if user_signed_in? || @user.is_admin? %>
-  <nav>
   <% if user_signed_in? %>
-      Hello <%= current_user.full_name %>,
-      <%= link_to "Logout", session_path, method: :delete, 
-      data: {confirm: "Are you sure you want to log out?"}%>
+      <nav id="primary_nav">
+      <a href="#" id="mobile_nav"><%= image_tag("ring", class: "menu-icon") %></a>
+      <ul>
+      <li><%= link_to(image_tag("user", class: "user-icon"), user_path(current_user.id)) %></li>
+      <li><%= link_to "Logout", session_path, method: :delete, 
+      data: {confirm: "Are you sure you want to log out?"} %> </li>
       <% else %>
-      <%= link_to "Login", new_session_path %>
+      <li><%= link_to "Login", new_session_path %></li>
       <% end %>
-      <%= link_to "Home", root_path %>
+      <li><%= link_to "Home", root_path %></li>
       <% if current_user && current_user.is_admin? %>
-       <%= link_to "Add guest", new_user_path %>
-       <%= link_to "Guest list", users_path %>
+       <li><%= link_to "Add Guest", new_user_path %></li>
+       <li><%= link_to "Guest list", users_path %></li>
       <% end %>
       <% if current_user %>
-       <%= link_to "Edit Guest Details", edit_user_path(current_user) %>
- 
+      <li><%= link_to "Edit Guest Details", edit_user_path(current_user) %></li>
+      <li><%= link_to "Seating Plan", tables_path %></li>
+      </ul>
+    </nav>
       <% end %>
     <% end %>
 <% end %>
-    </nav>
-
+  <div class="body-wrapper">
     <%= yield %>
+    </div>
   </body>
 </html>

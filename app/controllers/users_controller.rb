@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
     before_action :find_user, only: [:show, :edit, :update, :destroy, :edit_password, :update_password]
     before_action :correct_user, only: [:edit, :update]
-    
     before_action :authorize!, only: [:index]
+
 
     def new
         @user = User.new
@@ -21,27 +21,49 @@ class UsersController < ApplicationController
     end
 
     def index
-        @users = User.all
+        @users = User.all.order('full_name')
     end
+     
+
+    # def filter
+    #     @nationality = params[:nationality]
+    #     @table_num = params[:table_num]
+        
+    #     @users = User.all.order('created_at DESC')
+
+    #     if params[:allergies].present?
+    #         @users = User.all.allergies
+    #     end
+
+    #     if params[:is_admin].present?
+    #         @users = User.all.is_admin
+    #     end
+
+    #     if params[:nationality].present?
+    #         @users = User.nationality(@nationality)
+    #     end
+
+    #     if params[:table_num].present?
+    #         @users = User.table_num(@table_num)
+    #     end
+    # end
 
     def show
         redirect_to root_path unless can?(:show, current_user)
     end
 
     def edit
-        redirect_to root_path unless can?(:update, current_user)
+
     end
 
     def update
         updating_user = User.find_by(id: params.require(:id))
         redirect_to root_path unless can?(:update, updating_user)
 
-        if(current_user.is_admin? && updating_user.update(user_params))
-            flash[:notice] = 'Guest changes saved.'
-            redirect_to user_path(updating_user)
-        elsif(current_user.update(params.require(:user).permit(:email,  :phone, :nationality, :allergies, :rsvp)))
-        flash[:notice] = 'Profile changes saved.'
-        redirect_to 
+        if(current_user.update(params.require(:user).permit(:email, :phone, :nationality, :allergies, :rsvp)))
+
+            flash[:notice] = 'Profile changes saved.'
+            redirect_to tables_path
         else
             render :edit
         end
@@ -60,60 +82,11 @@ class UsersController < ApplicationController
         end
     end
 
+
+
+################################################################
     private
-
-    def user_params
-        params.require(:user).permit(:full_name, :email, :password, :password_confirmation)
-    end
-
-
-
-
-    # def new
-    #     redirect_to root_path unless can?(:create, current_user)
-    # end
-
-    # def create
-    #     redirect_to root_path unless can?(:create, current_user)
-    #     @user = User.new(user_params)
-    #     if @user.save
-    #         redirect_to @user, notice: 'Guest was successfully created!'
-    #     else
-    #         render :new
-    #     end
-    # end
-
-   
-    # def edit_password
-    #     redirect_to root_path unless can?(:edit_password, current_user)
-    # end
-
-    # def update_password
-    #     redirect_to root_path unless can?(:edit_password, current_user)
-    #     if @user&.authenticate(params[:user][:current_password])
-    #         if @user.update(user_params) 
-    #           flash[:notice] = "Profile changes saved."
-    #           redirect_to user_path(@user)
-    #         else
-    #           flash[:notice] = "Passwords did not match."
-    #           render :edit_password
-    #         end
-    #       else
-    #         flash[:notice] = "Wrong current password."
-    #         render :edit_password
-    #       end
-    #     end
-
-
-    # def filter
-    #     @users= User.all
-    #     @nationality= params[:nationality]
-    #     @rsvp= params[:rsvp]
-    #     render :index
-    # end
-
-    # private
-
+    
     def find_user
         @user = User.find(params[:id])
     end

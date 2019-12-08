@@ -1,25 +1,20 @@
-<p id="notice"><%= notice %></p>
 
-<div class="container d-flex flex-sm-column flex-md-row justify-content-center">
-  <div class="user-show">
-
-
-  <div class="user-show" id="user-info">
-    <p>
-      <strong>First name:</strong>
-      <%= @user.first_name %>
-    </p>
-    
-    <p>
-      <strong>Last name:</strong>
-      <%= @user.last_name %>
-    </p>
-
+<div class="show-user-container">
+  <div class="show-card" id="user-info">
+    <h1 class="edit-h1">
+      <%= @user.full_name %>
+    </h1>
+<br>
+    <% if @user.rsvp == 1 %>
+      <span class="active">is</span> <h2>Attending</h2>
+    <% elsif @user.rsvp == 2 %>
+      <span class="inactive">is</span> <h2>Not Attending</h2>
+    <% else %>
+      <h2> No Response</h2>
+    <% end %>
+  </p>
+<br>
     <% if current_user.is_admin? %>
-    <p>
-      <strong>User password:</strong>
-      <%= @user.password %>
-    </p>
     <p>
       <strong>User type:</strong>
       <% if @user.is_admin = false %>
@@ -31,6 +26,11 @@
     <% end %>
 
     <p>
+      <strong>Nationality:</strong>
+      <%= @user.nationality %>
+    </p>
+
+    <p>
       <strong>Email:</strong>
       <%= @user.email %>
     </p>
@@ -40,25 +40,23 @@
       <%= @user.phone %>
     </p>
 
+    <p>
+      <strong>Table:</strong> <%= @user.seat.table.number %>
+    </p>
 
     <p>
-      <strong>Attending:</strong>
-      <% if @user.rsvp == 1 %>
-        <span class="active">Attending</span> 
-      <% elsif @user.rsvp == 2 %>
-        <span class="inactive">Not Attending</span>
-      <% else %>
-        <span> No Response</span>
-      <% end %>
+      <strong>Seat:</strong> <%= @user.seat.number %>
     </p>
 
     <p>
     <strong>Allergies or Special Requests:</strong>
+    </p>
+    <p>
     <%= @user.allergies %>
-  </p>
+    </p>
+
     
-    
-  </div> 
+  </div>
 </div>
 <% if can? :edit, @user %>
   <div class="text-center py-5">

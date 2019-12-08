@@ -1,0 +1,87 @@
+.jp-seat {
+    color: white;
+    background-color: #ffc0cb;
+    width: fit-content;
+    margin: 1em;
+    text-align: center;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+    padding-right: .5em;
+    border: 3px solid pink;
+    border-radius: 15px;
+}
+
+.cad-seat {
+    color: white;
+    background-color: #8abad3ff;
+    width: fit-content;
+    margin: 1em;
+    text-align: center;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+    padding-right: .5em;
+    border: 3px solid #8abad3ff;
+    border-radius: 15px;
+}
+
+.oth-seat {
+    color: white;
+    background-color: rgb(141, 141, 141);
+    width: fit-content;
+    margin: 1em;
+    text-align: center;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+    padding-right: .5em;
+    border: 3px solid rgb(141, 141, 141);
+    border-radius: 15px;
+}
+
+.open-seat {
+    background-color: white;
+    width: fit-content;
+    margin: 1em;
+    text-align: center;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: .5em;
+    padding-right: .5em;
+    border: 3px solid #8abad3ff;
+    border-radius: 15px;
+}
+
+
+.allergy {
+    background-color: white;
+    width: fit-content;
+    margin: 1em;
+    text-align: center;
+    padding: .5em;
+    border: 5px solid rgb(255, 47, 47);
+    border-radius: 15px;
+}
+
+.table-legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2em;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.seating-letterhead {
+    background-image: url('guest-list-letterhead');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 500px;
+    height:100px;
+    justify-self: center;
+  }

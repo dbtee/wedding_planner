@@ -1,0 +1,252 @@
+.map-container {
+    background-image: url('wallpaper');
+    background-size: 200px;
+    background-color: rgba($color: #ffffff, $alpha: 0.9);
+    background-blend-mode: lighten;
+
+}
+
+.table-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 150px;
+    width: 300px;
+    box-shadow: 0px 0px 30px 0px rgba(63, 40, 40, 0.42);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 2em;
+    padding-bottom: 1.3em;
+ 
+}
+
+.table-label {
+    font-family: 'Montserrat', sans-serif;
+    padding: .5em;
+    font-size: .6em;
+}
+
+
+.create-table-btn {
+    text-align: center;
+    color: gray;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    width: 150px;
+    height: 50px;
+    background: transparent;
+    color: black;
+    background-color: white;
+    border: solid transparent .5px;
+    transition: border 1s;
+    text-decoration: none;
+}
+
+.create-table-btn:hover {
+    border: solid rgb(158, 158, 158) .5px;
+}
+
+.table-map {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 3em;
+    justify-content: center;
+    min-width: 1000px;
+    height: fit-content;
+}
+
+.table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    width: 550px;
+    height: 600px;
+    background-color: white;
+    border: 3px solid pink;
+    border-radius: 75px;
+    padding-left: 2.4em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin: 3em;
+}
+
+.seating-h1 {
+    text-align: center;
+}
+
+.seat.cad {
+    color: white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: #8abad3ff;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid #8abad3ff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+.seat.cad:hover {
+    background-color: #8abad3ff;
+    cursor: not-allowed;
+}
+
+.seat.jp {
+    color: white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: pink;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid pink;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+
+.seat.jp:hover {
+    background-color: pink;
+    cursor: not-allowed;
+}
+
+
+.seat.ot {
+    color: white;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: rgb(141, 141, 141);
+    height: 100px;
+    width: 100px;
+    border: rgb(141, 141, 141);
+    border-radius: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+}
+.seat.ot:hover {
+    background-color: rgb(141, 141, 141);
+    cursor: not-allowed;
+}
+
+.allrg {
+    border: 5px solid rgb(255, 47, 47);
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+
+.seat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid #8abad3ff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    background-color: white;
+    transition: background-color 1s;
+}
+.seat:hover {
+    background-color: rgb(207, 207, 207);
+    cursor: pointer;
+}
+
+.reserved {
+    background-color: rgb(184, 221, 241);
+}
+
+.table-space {
+    display: flex;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+}
+
+h3.table-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    font-size: 35pt;
+    color: gray;
+
+}
+
+.seat-btn {
+    width: 100%;
+    min-height: 105.75px;
+    background-color: transparent;
+    border: none;
+}
+
+.table-space {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.table-num-input {
+    width: 50px;
+    height: .7em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.label-field-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: .2em;
+    align-items: center;
+    padding-top: 18px;
+    margin-bottom: 10px;
+}
+
+.label-select {
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    width: 80px;
+    text-align-last:center;
+    border: none;
+}
+
+.delete-btn {
+    color: rgb(148, 148, 148);
+    margin-top: 1em;
+    vertical-align: middle;
+    padding: .5em;
+    border: transparent 1px;
+    border-radius: 5px;
+    transition: background-color .5s, color .5s, border .5s .5s;
+}
+
+.delete-btn:hover {
+    color: white;
+    background-color: rgb(245, 57, 57);
+    border: rgb(245, 57, 57) 1px;
+    border-radius: 5px;
+}

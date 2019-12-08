@@ -1,9 +1,42 @@
+.new-user-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
+.show-user-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.new-user-btn {
+    display: inline-block;
+    position: relative;
+    margin: 1em;
+    padding: 0.67em;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6em;
+    border: solid black 1px;
+    width: 150px;
+    overflow: hidden;
+    background: transparent;
+    color: black;
+}
+.new-h1 {
+    padding-bottom: 1em;
+}
 
 .login-body-bg {
     background-image: url('login-bg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     width: 100%;
     height: 100vh;
 }
@@ -18,23 +51,21 @@
     height: 100vh;
 }
 
-.edit-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .edit-body-bg {
-    
+    display: flex;
+    justify-content: center;
     opacity: 0;
     background-image: linear-gradient(transparent, white 99%), url('user-edit');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    background-position: center;
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 140vh;
     top: 0px; right: 0px; bottom: 0px; left: 0px;
+    z-index: 0;
 }
 
 
@@ -51,26 +82,36 @@
     background-position-y: top;
     background-position-x: center;
     // color: rgb(77, 77, 77);
-
 }
 
-.guest-form-card {
-
-    animation: 4s ease-out 0s 1 slideInFromBottom;
-
+.new-card {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     background-color: white;
+    height: 78vh;
     min-width: 30%;
     box-shadow: 0px 0px 30px 0px rgba(63, 40, 40, 0.42);
-    position: absolute;
-
-    margin-top: 5%;
-    margin-bottom: 10%;
-    overflow: auto;
+    padding-right: 4em;
+    padding-left: 4em;
+    padding-top: 3em;
+    padding-bottom: 2em;
 }
 
+.show-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    min-height: 40%;
+    min-width: 30%;
+    box-shadow: 0px 0px 30px 0px rgba(63, 40, 40, 0.42);
+    padding: 3em;
+}
 
 .form-card {
     display: flex;
@@ -97,9 +138,13 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    box-shadow: 0px 0px 30px 0px rgba(63, 40, 40, 0.42);
+    background-color: white;
+    animation: 4s ease-out 0s 1 slideInFromBottom;
     align-items: center;
     justify-content: center;
     margin: 2em;
+    padding: 3em;
 }
 
 .field-wrap {

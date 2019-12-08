@@ -1,0 +1,95 @@
+<script>
+
+</script>
+
+<div class="index-body">
+<h1 class="guest-index-h1">Seating Plan</h1>
+<div class="seating-letterhead"></div>
+<h3>Choose a seat</h3>
+<br>
+
+<% if current_user.is_admin? %>
+
+  <%= form_with(model: @table, local: true, class: "table-form") do |form| %>
+
+    <div class="label-field-wrap">
+        <%= form.label :number, 'Label', class: "table-label" %>
+        <%= form.select :number, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], {}, {:class => "label-select"} %>
+        <br>
+    </div>
+
+
+    <%= button_tag(type: 'submit', class: "create-table-btn") do %>
+    Create Table
+    <% end %>
+
+<% end %>
+</div>
+
+<div class="map-container">
+<% end %>
+
+<div class="table-map">
+<% @tables.each do |table| %>
+
+    <ul class="table table-1">
+
+    <% table.seats.each do |seat| %>
+      <%= form_with url: table_seat_path(table.id, seat.id), method: :patch,local: true do |form| %>
+        
+        <li class="seat-<%= seat.number %>"> 
+
+        <% if seat.user_id? %>
+
+            <% if seat.user.nationality == "Canadian" %>
+
+            <div class="seat cad"> 
+
+            <% elsif seat.user.nationality == "Japanese" %>
+
+            <div class="seat jp">
+
+            <% else seat.user.nationality == "Other" %>
+
+            <div class="seat ot">
+
+            <% end %>
+            
+            <div class="<%= 'allrg' if seat.user.allergies != 'None' && current_user.is_admin? %>">
+            
+          Seat <%= seat.number %> <%= seat.user.full_name %> </div>
+
+        <% else %>
+          <%= form.submit "Seat #{seat.number}", class: "seat" %>
+
+        <%= form.hidden_field(:user_id, value: current_user.id) %>
+        <% end %>
+
+        </li>
+
+           
+    <% end %>
+<% end %>
+    <div class="table-space"><h3 class="table-title">Table <%= table.number %></h3>
+
+    <% if current_user.is_admin? %>
+            <%= link_to 'Delete', table, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %> 
+
+    <% end %>
+ 
+    </div>
+    </ul>
+<% end %>
+</div>
+</div>
+<div class="table-legend">
+  <p class="open-seat">Open seat</p>
+  <p class="jp-seat">Occupied (Japanese)</p>
+  <p class="cad-seat">Occupied (Canadian)</p>
+  <p class="oth-seat">Occupied (Other nationality)</p>
+
+  <% if current_user.is_admin? %>
+  <p class="allergy">Special request</p>
+  <% end %>
+
+</div>

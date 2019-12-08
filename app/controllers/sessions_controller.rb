@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     end
 
     def create
+
         @user = User.new
         user = User.find_by_full_name params[:full_name]
         if user&.authenticate(params[:password])

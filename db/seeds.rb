@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+User.delete_all
 
 super_user = User.create(
   full_name: "Dustin Tobin",

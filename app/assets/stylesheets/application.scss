@@ -7,6 +7,11 @@
 @import 'sign-in-btn.css';
 @import 'users.scss';
 @import 'welcome.scss';
+@import 'guest-index.scss';
+@import "tables.scss";
+@import "seats.scss";
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+@import "navbar.scss";
 
 *,
 *:before,
@@ -19,7 +24,6 @@
 label {
     font-family: 'Montserrat', sans-serif;
     padding: .5em;
-    
 }
 
 input {
@@ -39,7 +43,7 @@ select {
     width: 7em;
     height: 2em;
     font-size: larger;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Montserrat', sans-serif;
     margin-left: auto;
 }
 
@@ -53,3 +57,19 @@ body {
     background-color: whitesmoke;
 }
 
+.body-wrapper {
+    min-height: 100vh;
+    background-image: url('wallpaper');
+    background-size: 200px;
+    background-color: rgba($color: #ffffff, $alpha: 0.9);
+    background-blend-mode: lighten;
+}
+
+strong {
+    font-weight: bolder;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

@@ -1,71 +1,73 @@
-<p id="notice"><%= notice %></p>
+<div class='index-body'>
 
-<h1>Users</h1>
+  <div class="guest-list-head">
+    <h1 class="guest-index-h1">Guest List</h1>
+    <div class="guest-list-letterhead"></div>
+  </div>
 
-<table class="table table-striped">
-  <thead class="thead-light">
-    <tr>
-    <th scope="col">Role</th>
-    <th scope="col">Name</th>
-    <th scope="col">Nationality</th>
-    <th scope="col">Email</th>
-    <th scope="col">Phone</th>
-    <th scope="col" class="user-status">Attending</th>
-    <th scope="col">Allergies</th>
-    <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
+  <%= link_to 'New User', new_user_path, class: 'create-user-btn' %>
 
-        <% if can? :index, user%>
-          <tr>
-          <td class="td-user-role">
-          <% if user.is_admin? %>
-            Admin
-          <% else %>
+  <ul class="user-index-body">
+      <% @users.each do |user| %>
+        <%= link_to(user_path(user.id), class: 'no-style') do %>
+        <li class="small-card" id="user-info">
+        <h3 class="small-h3">
+          <%= user.full_name %>
+        </h3>
+    <br>
+        <% if user.rsvp == 1 %>
+          <span class="active">is Attending</span>
+        <% elsif user.rsvp == 2 %>
+          <span class="inactive">is Not Attending</span>
+        <% else %>
+          <span> No Response</span>
+        <% end %>
+      </p>
+      <div class="left-align">
+        <% if current_user.is_admin? %>
+        <p>
+          <strong>User type:</strong>
+          <% if user.is_admin = false %>
             Guest
-          <% end %></td>
-
-            <% if can? :show, user%>
-            <td><%= link_to "#{user.full_name}", user_path(user.id) %>
-            <% end %>
-
-            <td class="td-user-nationality"><%= user.nationality %></td>
-            <td class="td-user-email"><%= user.email %></td>
-            <td class="td-user-phone"><%= user.phone %></td>
-            <td class="td-user-rsvp">
-            <% if user.rsvp == 1 %>
-                Attending
-            <% elsif user.rsvp == 2 %>
-                Not Attending
-            <% else %>
-                No Response
-            <% end %> 
-            </td>
-
-            <td class="td-user-allergies">
-            <% if user.allergies == "None" %>
-                None
-            <% else %>
-                Yes
-            <% end %> 
-            </td>
-
-            <td class="td-user-actions">
-            <% if can? :edit, user%>
-            <%= link_to 'Edit', edit_user_path(user), class: "btn btn-secondary btn-sm" %>
-            <% end %>
-            <% if can? :edit, user%>
-            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary btn-sm" %></td>
-            <% end %>
-          </tr>
+          <% else %>
+            Admin
+          <% end %>
+        </p>
+        <% end %>
+    
+        <p>
+          <strong>Nationality:</strong>
+          <%= user.nationality %>
+        </p>
+    
+        <p>
+          <strong>Email:</strong>
+          <%= user.email %>
+        </p>
+    
+        <p>
+          <strong>Phone:</strong>
+          <%= user.phone %>
+        </p>
+    
+        <p>
+          <strong>Table:</strong> <%= user.seat.table.number %>
+        </p>
+    
+        <p>
+          <strong>Seat:</strong> <%= user.seat.number %>
+        </p>
+    
+        <p>
+        <strong>Allergies or Special Requests:</strong>
+        <%= user.allergies %>
+        </p>
+    
+        </div>
+      </li>
         <% end %>
       <% end %>
+    </tbody>
+  </table>
 
-  </tbody>
-</table>
-<br>
-
-<%= link_to 'New User', new_user_path, class: 'btn btn-maroon' %>
-<br>
+</div>
