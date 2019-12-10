@@ -145,6 +145,39 @@
     justify-content: center;
     margin: 2em;
     padding: 3em;
+    width: 700px;
+}
+
+#user_nationality {
+    margin-left: 0%;
+    font-size: 15px;
+}
+
+#user_rsvp {
+    margin-left: 0%;
+    font-size: 15px;
+}
+
+.column-1 {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    padding-right: .5em;
+}
+
+.column-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: start;
+    padding-left: .5em;
+}
+
+.split-form {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
 }
 
 .field-wrap {

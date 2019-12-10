@@ -13,11 +13,13 @@
     top: 0px;
     position: fixed;
     display: block;
-    left: -115px;
+    left: -116px;
     width: 170px;
     height: 100%;
-    background: rgba(43, 150, 182, .33);
+    background: rgb(43, 150, 182);
     z-index: 500;
+    margin-right: 100px;
+    
 }
 
 #primary_nav ul {

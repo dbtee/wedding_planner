@@ -64,8 +64,7 @@ class UsersController < ApplicationController
 
             flash[:notice] = 'Profile changes saved.'
             redirect_to tables_path
-        else
-            render :edit
+
         end
     end
 

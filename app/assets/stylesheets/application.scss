@@ -1,4 +1,3 @@
-
 @import 'reset.css';
 @import 'sans-serif.css';
 @import 'serif-font.css';
@@ -12,6 +11,15 @@
 @import "seats.scss";
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 @import "navbar.scss";
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap');
+@font-face {
+    font-family: 'Sawarabi Mincho', sans-serif;
+    src: url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho&display=swap');
+    unicode-range: U+3000-9FFF;
+}
+:lang(ja) {
+    font-family: 'Sawarabi Mincho', sans-serif !important;
+    }
 
 *,
 *:before,
@@ -49,19 +57,20 @@ select {
 
 body {
     height: auto;
+    max-width: 100vw;
 }
 
 .text-field {
     border: transparent;
     border-bottom: 1px solid gray;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .body-wrapper {
     min-height: 100vh;
     background-image: url('wallpaper');
     background-size: 200px;
-    background-color: rgba($color: #ffffff, $alpha: 0.9);
+    background-color: rgba($color: #ffffff, $alpha: 0.94);
     background-blend-mode: lighten;
 }
 

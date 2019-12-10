@@ -1,4 +1,69 @@
 <div class="home-wrapper">
-    <div-class="heading-bg">
-    
+
+    <div class="timer" id="timer">
+        <div class="timer" id="days"></div>
+        <div class="timer" id="hours"></div>
+        <div class="timer" id="minutes"></div>
+        <div class="timer" id="seconds"></div>
     </div>
+
+    <%= image_tag("polaroid2", class: "polaroid2") %>
+    <h3 id='until'>until</h3>
+    <ul class="heading-ul">
+        <li class="heading-li">
+            <h1 id="mao-h1">Mao</h1>
+        </li>
+        <li class="heading-li">
+            <h3 id='and'>and</h3>
+        </li>
+        <li class="heading-h1">
+            <h1 id="dustin-h1">Dustin's</h1>
+        </li>
+    </ul>
+
+    <%= image_tag("hearts", class: "hearts") %>
+
+    <h1 id="wedding-h1">Celebration of Marriage</h1>
+
+    <div class="venue-wrapper"></div>
+        <%= image_tag("hotel", class: "hotel") %>
+        <ul class="venue-ul">
+            <li class="venue-li">
+                <h3 class="venue-h3">WHERE </h3>
+                <a href="https://goo.gl/maps/BYwgDnmkyLL7aeRb8" class="venue-p" id="hotel-link">Cross Hotel Sapporo</a>
+            </li>
+
+            <li class="venue-li">
+                <h3 class="venue-h3">WHEN </h3>
+                <p class="venue-p">6pm June 21st, 2020</p>
+            </li>
+
+            <li class="venue-li">
+                <h3 class="venue-h3">RECEPTION </h3>
+                <a href="https://goo.gl/maps/MF7foo71AfXsFqrF9" class="venue-p" id="rec-link">Akarenga Terrace</a>
+            </li>
+
+            <li class="venue-li">
+                <h3 class="venue-h3">CONTACT </h3>
+            </li>
+
+            <li class="venue-li">
+                <form class="cf">
+                <div class="half left cf">
+                    <input type="text" id="input-name" placeholder="Name" class="contact-inp">
+                    <input type="email" id="input-email" placeholder="Email address" class="contact-inp">
+                    <input type="text" id="input-subject" placeholder="Subject" class="contact-inp">
+                </div>
+                <div class="half right cf">
+                    <textarea name="message" type="text" id="input-message" placeholder="Message" class="contact-inp"></textarea>
+                </div>  
+                    <input type="submit" value="Submit" id="input-submit" class="contact-inp"">
+                </form>
+            </li>
+        </ul>
+
+<div class="footer-dim"></div>
+    <%= image_tag("home-header", class: "home-header") %>
+        <h1 class="heading-h1">Looking Forward</h1>
+        <h2 class="heading-h2">to seeing you!</h2>
+</div>
