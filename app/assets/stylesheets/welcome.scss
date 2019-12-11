@@ -1,7 +1,7 @@
 .home-wrapper {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     min-height: 100vh;
 
     max-height: max-content;
@@ -15,31 +15,29 @@
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 5;
-    grid-row-end: 8;
+    grid-row-end: 7;
     align-self: end;
 }
 .heading-h1 {
     grid-column-start: 4;
     grid-column-end: 8;
-    grid-row-start: 6;
+    grid-row-start: 5;
     grid-row-end: 7;
     z-index: 101;
     color: white;
     font-size: 8vw;
-
-    align-self: end;
+    align-self: center;
 }
 .heading-h2 {
     grid-column-start: 4;
     grid-column-end: 6;
-    grid-row-start: 7;
-    align-self: start;
+    grid-row-start: 6;
+    align-self: center;
     justify-self: start;
     z-index: 101;
     color: white;
     font-size: 5vw;
-    margin-bottom: 4em;
-    margin-top: .2em;
+    margin-bottom: .4em;
     background: rgba($color: #000000, $alpha: .2);
     background-size: inherit;
 }
@@ -105,8 +103,7 @@
     width: 35vw;
     transform: rotate(20deg);
     align-self: end;
-    margin-top: 3vw;
-    padding-bottom: 2vw;
+    padding-bottom: 7vw;
     padding-right: 2vw;
 }
 
@@ -150,15 +147,9 @@
 
 #dustin-h1 {
     color: rgb(43, 150, 182);
-//     grid-row-start: 2;
-//     grid-row-end: 4;
-//     grid-column-start: 3;
-//     grid-column-end: 5;
     font-size: 5vw;
-//     align-self: center;
     position: relative;
     z-index: 1;
-
     margin-left: .15em;
 }
 
@@ -195,7 +186,7 @@
     grid-column-start: 1;
     grid-column-end: 4;
     max-width: 35vw;
-    margin-top: 10vw;
+    margin-top: 4vw;
     margin-left: 5vw;
     transform: rotate(350deg);
 
@@ -209,7 +200,7 @@
     grid-row-end: 6;
     grid-column-start: 3;
     grid-column-end: 7;
-    padding-top: 10vw;
+    padding-top: 5vw;
     padding-left: 15vw;
 }
 
@@ -254,10 +245,9 @@
 
 .footer-dim {
     grid-row-start: 5;
-    grid-row-end: 8;
+    grid-row-end: 7;
     grid-column-start: 1;
     grid-column-end: 7;
-    margin-top: 14.8vw;
     background-color: rgba($color: #000000, $alpha: 0.2);
     z-index: 100;
 }
