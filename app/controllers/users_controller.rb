@@ -24,32 +24,8 @@ class UsersController < ApplicationController
         @users = User.all.order('full_name')
     end
      
-
-    # def filter
-    #     @nationality = params[:nationality]
-    #     @table_num = params[:table_num]
-        
-    #     @users = User.all.order('created_at DESC')
-
-    #     if params[:allergies].present?
-    #         @users = User.all.allergies
-    #     end
-
-    #     if params[:is_admin].present?
-    #         @users = User.all.is_admin
-    #     end
-
-    #     if params[:nationality].present?
-    #         @users = User.nationality(@nationality)
-    #     end
-
-    #     if params[:table_num].present?
-    #         @users = User.table_num(@table_num)
-    #     end
-    # end
-
     def show
-        redirect_to root_path unless can?(:show, current_user)
+
     end
 
     def edit
