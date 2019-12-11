@@ -83,3 +83,22 @@
   padding-left: 1.5em;
   line-height: 2;
 }
+
+@media only screen and (max-width : 1600px) {
+  .user-index-body {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media only screen and (max-width : 1249px) {
+  .user-index-body {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width : 860px) {
+  .user-index-body {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
