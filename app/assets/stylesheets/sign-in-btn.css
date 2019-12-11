@@ -13,6 +13,7 @@
     overflow: hidden;
     background: transparent;
     color: black;
+    cursor: pointer;
 }
 
 .sign-in-btn span {

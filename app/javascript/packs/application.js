@@ -11,6 +11,7 @@ require("jquery")
 
 $(document).ready(() => {
 
+
   function makeTimer() {
 
       var endTime = new Date("21 June 2020 10:00:00 GMT+09:00");			
@@ -265,4 +266,12 @@ $("#anchor-link-1").click(function() {
      
   });//end
 
-  
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});

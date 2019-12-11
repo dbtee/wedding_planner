@@ -70,28 +70,21 @@ $('.edit-body-bg').animate({ opacity: 1 }, { duration: 3000 });
         <%= form.text_field :allergies, class: "text-field" %>
       </div>
       <br>
-
-    </div>
-</div>
-<% if current_user.is_admin? %>
+      <% if current_user.is_admin? %>
       <div class="field-wrap">
         <%= form.label :is_admin %>
         <%= form.check_box :is_admin, class: "text-field" %>
     </div>
-    <br>
 <% end %>
+
+
+    </div>
+</div>
+
 
       <%= button_tag(type: 'submit', class: "sign-in-btn") do %>
         Submit
       <% end %>
-
-
-
-<% if current_user.is_admin? %>
-<div class="container">
-  <%= link_to 'Back', users_path%>  
-</div>
-<% end %>
 <% end %>
 </div>
 </div>

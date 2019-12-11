@@ -47,7 +47,7 @@ nav {
 }
 
 select {
-    background-color: whitesmoke;
+    background-color: rgb(255, 255, 255);
     width: 7em;
     height: 2em;
     font-size: larger;
@@ -61,6 +61,8 @@ body {
 }
 
 .text-field {
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
     border: transparent;
     border-bottom: 1px solid gray;
     background-color: white;

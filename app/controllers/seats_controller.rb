@@ -18,7 +18,8 @@ class SeatsController < ApplicationController
        
         @table = Table.find(params[:table_id])
         @seat = Seat.find_by id: params[:id]
-        old_seat = @table.seats.find_by user_id: current_user.id
+        # old_seat = @table.seats.find_by user_id: current_user.id
+        old_seat = Seat.all.find_by user_id: current_user.id
          
         if old_seat != nil
           old_seat.user_id = nil
