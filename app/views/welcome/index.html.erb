@@ -8,59 +8,47 @@
     </div>
 
     <%= image_tag("polaroid2", class: "polaroid2") %>
-    <h3 id='until'>until</h3>
-    <ul class="heading-ul">
-        <li class="heading-li">
-            <h1 id="mao-h1">Mao</h1>
-        </li>
-        <li class="heading-li">
-            <h3 id='and'>and</h3>
-        </li>
-        <li class="heading-h1">
-            <h1 id="dustin-h1">Dustin's</h1>
-        </li>
-    </ul>
-
-    <%= image_tag("hearts", class: "hearts") %>
+    
+    <div class="heading-ul">
+            <h3 id='until'>with</h3><h1 id="mao-h1">Mao</h1>
+            <h3 id='until'>and</h3><h1 id="dustin-h1">Dustin</h1>
+    </div>
 
     <h1 id="wedding-h1">Celebration of Marriage</h1>
 
     <div class="venue-wrapper"></div>
-        <%= image_tag("hotel", class: "hotel") %>
-        <ul class="venue-ul">
-            <li class="venue-li">
-                <h3 class="venue-h3">WHERE </h3>
+        <%= image_tag("polaroid3", class: "hotel") %>
+        <div class="venue-ul">
+            <div class="venue-li">
+                <h3 class="venue-h3">Where:</h3>
                 <a href="https://goo.gl/maps/BYwgDnmkyLL7aeRb8" class="venue-p" id="hotel-link">Cross Hotel Sapporo</a>
-            </li>
+            </div>
 
-            <li class="venue-li">
-                <h3 class="venue-h3">WHEN </h3>
+            <div class="venue-li">
+                <h3 class="venue-h3">When:</h3>
                 <p class="venue-p">6pm June 21st, 2020</p>
-            </li>
+            </div>
 
-            <li class="venue-li">
-                <h3 class="venue-h3">RECEPTION </h3>
+            <div class="venue-li">
+                <h3 class="venue-h3">Reception:</h3>
                 <a href="https://goo.gl/maps/MF7foo71AfXsFqrF9" class="venue-p" id="rec-link">Akarenga Terrace</a>
-            </li>
+            </div>
 
-            <li class="venue-li">
-                <h3 class="venue-h3">CONTACT </h3>
-            </li>
-
-            <li class="venue-li">
+            <div class="venue-li">
+                <h3 class="venue-h3">Contact:</h3>
+            </div>
                 <form class="cf">
                 <div class="half left cf">
-                    <input type="text" id="input-name" placeholder="Name" class="contact-inp">
-                    <input type="email" id="input-email" placeholder="Email address" class="contact-inp">
-                    <input type="text" id="input-subject" placeholder="Subject" class="contact-inp">
+                    <input type="email" id="input-email" placeholder="Email address">
+                    <input type="text" id="input-subject" placeholder="Subject">
                 </div>
                 <div class="half right cf">
-                    <textarea name="message" type="text" id="input-message" placeholder="Message" class="contact-inp"></textarea>
+                    <textarea name="message" type="text" id="input-message" placeholder="Message"></textarea>
                 </div>  
-                    <input type="submit" value="Submit" id="input-submit" class="contact-inp"">
+                <input type="submit" value="Submit" id="input-submit">
                 </form>
-            </li>
-        </ul>
+        </div>
+       
 
 <div class="footer-dim"></div>
     <%= image_tag("home-header", class: "home-header") %>

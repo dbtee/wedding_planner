@@ -38,6 +38,22 @@ $(document).ready(() => {
     }
   
     setInterval(function() { makeTimer(); }, 1000);
+//////////////////// List Loader //////////////////////////
+
+var mincount = 20;
+var maxcount = 40;
+
+$("window").scroll(function() {
+
+  if($("window").scrollTop() + $("window").height() >= $(document).height() - 400) {
+    
+    $(".user-index-body li").slice(mincount,maxcount).fadeIn(1000);
+
+    mincount = mincount+20;
+    maxcount = maxcount+20;
+
+  }
+});
 
 /* ===========================================================
  * jquery-simple-text-rotator.js v1
@@ -212,6 +228,17 @@ $(document).ready(() => {
   !function($){
     $( ".welcome-h1")
   }
+/////////////////////////////////////////////////////////////////
+
+  function scrollToAnchor(aid){
+    var aTag = $("a[name='"+ aid +"']");
+    
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+}
+
+$("#anchor-link-1").click(function() {
+   scrollToAnchor('anchor-1');
+});
   });
 
 ///////// NavBar ///////////
@@ -227,7 +254,7 @@ $(document).ready(() => {
         $("body").css("overflow-x","hidden");
         $("#primary_nav").css("overflow-y","hidden");
       }else{
-        $("#primary_nav").animate({left: "-115px"}, 200);
+        $("#primary_nav").animate({left: "-116px"}, 200);
         $("#wrapper_main_content").animate({left: "0px"}, 200);
         $("#wrapper_main_content").css("overflow-y","hidden");
         $("body").css("overflow-x","hidden");

@@ -41,11 +41,11 @@
     </p>
 
     <p>
-      <strong>Table:</strong> <%= @user.seat.table.number %>
+      <strong>Table:</strong> <%= @user&.seat&.table&.number || "N/A" %>
     </p>
 
     <p>
-      <strong>Seat:</strong> <%= @user.seat.number %>
+      <strong>Seat:</strong> <%= @user&.seat&.table&.number || "N/A" %>
     </p>
 
     <p>

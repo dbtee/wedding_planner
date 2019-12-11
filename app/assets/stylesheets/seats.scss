@@ -1,3 +1,4 @@
+////////// Legend ///////////
 .jp-seat {
     color: white;
     background-color: #ffc0cb;
@@ -68,6 +69,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     padding: 2em;
 }
 
@@ -84,4 +86,4 @@
     width: 500px;
     height:100px;
     justify-self: center;
-  }
+}

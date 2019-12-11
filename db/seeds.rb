@@ -9,6 +9,11 @@
 
 User.delete_all
 
+nation = Faker::Nation.nationality
+  if nation[-1].include? "s"
+    nation.chomp('s')
+  end
+
 super_user = User.create(
   full_name: "Dustin Tobin",
   password: "wew",
@@ -21,3 +26,17 @@ super_user = User.create(
 
 )
 
+70.times do
+  full_name = Faker::Name.name
+  nation = ['Canadian', 'Japanese', "#{Faker::Nation.language}"].sample
+
+  User.create(
+    full_name: full_name,
+    phone: Faker::PhoneNumber.phone_number,
+    is_admin: false,
+    email: "#{full_name.gsub(/\s+/, "").downcase}@example.com",
+    password: 'wew',
+    allergies: 'none',
+    nationality: nation
+  )
+end

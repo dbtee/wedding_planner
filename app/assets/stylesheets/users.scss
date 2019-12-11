@@ -28,6 +28,11 @@
     background: transparent;
     color: black;
 }
+
+.new-user-btn:hover{
+    cursor: pointer;
+}
+
 .new-h1 {
     padding-bottom: 1em;
 }
@@ -91,7 +96,7 @@
     align-items: center;
     position: absolute;
     background-color: white;
-    height: 78vh;
+    height: 40em;
     min-width: 30%;
     box-shadow: 0px 0px 30px 0px rgba(63, 40, 40, 0.42);
     padding-right: 4em;
@@ -145,7 +150,13 @@
     justify-content: center;
     margin: 2em;
     padding: 3em;
+    padding-bottom: 2em;
     width: 700px;
+}
+
+.form-control {
+    border: transparent;
+    border-bottom: 1px solid black;
 }
 
 #user_nationality {

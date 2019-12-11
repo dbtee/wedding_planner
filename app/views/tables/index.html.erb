@@ -57,7 +57,7 @@
             
             <div class="<%= 'allrg' if seat.user.allergies != 'None' && current_user.is_admin? %>">
             
-          Seat <%= seat.number %> <%= seat.user.full_name %> </div>
+          Seat <%= seat.number %> <br> <%= seat.user.full_name %> </div>
 
         <% else %>
           <%= form.submit "Seat #{seat.number}", class: "seat" %>
@@ -80,8 +80,10 @@
     </div>
     </ul>
 <% end %>
+<%= link_to "Home", root_path, class: "home-btn" %>
 </div>
 </div>
+
 <div class="table-legend">
   <p class="open-seat">Open seat</p>
   <p class="jp-seat">Occupied (Japanese)</p>
