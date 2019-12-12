@@ -36,7 +36,7 @@ super_user = User.create(
     is_admin: false,
     email: "#{full_name.gsub(/\s+/, "").downcase}@example.com",
     password: 'wew',
-    allergies: 'none',
+    allergies: 'None',
     nationality: nation
   )
 end
