@@ -68,10 +68,11 @@
 
             <% end %>
             
-            <div class="<%= 'allrg' if seat.user.allergies != 'None' && current_user.is_admin? %>">
-            
-          Seat <%= seat.number %> <br> <%= seat.user.full_name %> </div>
 
+            <div class="<%= 'allrg' if seat.user.allergies != 'None' && current_user.is_admin? %>">
+            <%= link_to(user_path(seat.user.id), class: 'no-style2') do %>
+            Seat <%= seat.number %> <br> <%= seat.user.full_name %> </div>
+              <% end %>
         <% else %>
           <%= form.submit "Seat #{seat.number}", class: "seat" %>
 
