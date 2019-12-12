@@ -58,6 +58,28 @@
   color: black;
 }
 
+.edit-user-btn {
+
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;    
+    font-size: 16px;
+    width: 150px;
+    height: 50px;
+    background: transparent;
+    color: black;
+    border: solid transparent .5px;
+    transition: border 1s, background-color 1s;
+    text-decoration: none;
+    padding-top: 5px;
+    margin-bottom: 5em;
+    background-color: transparent;
+    padding: .5em;
+}
+.edit-user-btn:hover {
+  background-color: white;
+  border: solid black 1px;
+}
+
 .create-user-btn {
   text-align: center;
   font-family: 'Cormorant Garamond', serif;

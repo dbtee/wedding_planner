@@ -25,7 +25,6 @@ class UsersController < ApplicationController
     end
      
     def show
-
     end
 
     def edit
@@ -40,7 +39,8 @@ class UsersController < ApplicationController
 
             flash[:notice] = 'Profile changes saved.'
             redirect_to tables_path
-
+        elsif(current_user.is_admin?)
+            redirect_to updating_user_path
         end
     end
 

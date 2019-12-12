@@ -54,12 +54,15 @@
     <p>
     <%= @user.allergies %>
     </p>
-
-    
+    <% if can? :edit, @user %>
+    <br>
+      <div class="text-center py-5">
+        <%= link_to 'Edit', edit_user_path(@user), class: "edit-user-btn" %>
+      </div>
+    <%end%>
+    <% if current_user.is_admin? %>
+      <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %> 
+    <% end %>
   </div>
 </div>
-<% if can? :edit, @user %>
-  <div class="text-center py-5">
-      <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-secondary btn-sm" %>
-  </div>
-<%end%>
+
