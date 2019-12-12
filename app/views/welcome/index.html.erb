@@ -1,6 +1,6 @@
 
 <div class="home-wrapper">
-<a href="#anchor1" class="anchor-arrow">▼</a>
+<a href="#anchor1" class="anchor-arrow"><%= image_tag("arrow-circle-down-solid", class: "anchor-arrow2") %></a>
 
     <div class="timer" id="timer">
         <div class="timer" id="days"></div>
@@ -50,7 +50,11 @@
                 <input type="submit" value="Submit" id="input-submit">
                 </form>
         </div>
-        <a href="#anchor2" class="anchor-arrow2">▼</a>
+
+
+        <a href="#anchor2" class="anchor-arrow2">
+            <%= image_tag("arrow-circle-down-solid", class: "anchor-arrow2") %>
+        </a>
 
     <div id="anchor2"></div>
         <%= image_tag("home-header", class: "home-footer") %>

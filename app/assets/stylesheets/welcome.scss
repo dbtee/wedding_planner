@@ -10,7 +10,7 @@
 }
 .home-footer {
     width: 100%;
-    height: auto;
+    min-height: 100vh;
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 5;
@@ -49,6 +49,7 @@
     grid-row-start: 2;
     margin-bottom: 10vh;
     margin-right: 1vw;
+    margin-left: 10px;
     justify-self: end;
     height: 50px;
     width: 50px;
@@ -57,7 +58,7 @@
 }
 
 .anchor-arrow2 {
-    color: rgb(43, 150, 182);
+    color: #2b96b6;
     font-size: 60px;
     grid-column-start: 6;
     grid-row-start: 4;
@@ -93,7 +94,7 @@
     grid-column-end: 6;
     grid-row-start: 2;
     margin-left: 4vw;
-    margin-bottom: 2em;
+    margin-bottom: 10vw;
     align-self: center;
   }
   #days {
@@ -144,7 +145,7 @@
     justify-self: start;
     align-self: flex-start;
     padding-left: 3em;
-    margin-top: -2vw;
+    margin-top: -4vw;
 }
 .heading-li {
     display: flex;
@@ -203,7 +204,7 @@
     grid-column-end: 4;
     max-width: 35vw;
     margin-top: 4vw;
-    margin-left: 5vw;
+    margin-left: 7.5vw;
     transform: rotate(350deg);
 }
 .venue-ul {
