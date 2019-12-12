@@ -45,30 +45,33 @@
 .anchor-arrow {
     color: rgb(43, 150, 182);
     font-size: 60px;
-    grid-column-start: 6;
+    grid-column-start: 1;
+    grid-column-end: 7;
     grid-row-start: 2;
-    margin-bottom: 10vh;
-    margin-right: 1vw;
-    margin-left: 10px;
-    justify-self: end;
+    margin-bottom: 6vh;
+    justify-self: center;
     height: 50px;
     width: 50px;
     align-self: end;
     border: 15px transparent;
+    position: relative;
+    z-index: 100;
 }
 
 .anchor-arrow2 {
-    color: #2b96b6;
+    color: rgb(43, 150, 182);
     font-size: 60px;
-    grid-column-start: 6;
+    grid-column-start: 1;
+    grid-column-end: 7;
     grid-row-start: 4;
-    margin-bottom: 10vh;
-    margin-right: 1vw;
-    justify-self: end;
+    margin-bottom: 6vh;
+    justify-self: center;
     height: 50px;
     width: 50px;
     align-self: end;
-    border: 5px transparent;
+    border: 15px transparent;
+    position: relative;
+    z-index: 100;
 }
 #anchor1 {
     grid-row-start: 3;
