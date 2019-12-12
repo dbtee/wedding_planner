@@ -54,7 +54,7 @@
     <p>
     <%= @user.allergies %>
     </p>
-    <% if can? :edit, @user %>
+    <% if can? :update, @user %>
     <br>
       <div class="text-center py-5">
         <%= link_to 'Edit', edit_user_path(@user), class: "edit-user-btn" %>
