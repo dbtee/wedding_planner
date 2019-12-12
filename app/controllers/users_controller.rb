@@ -39,8 +39,6 @@ class UsersController < ApplicationController
 
             flash[:notice] = 'Profile changes saved.'
             redirect_to tables_path
-        elsif(current_user.is_admin?)
-            redirect_to updating_user_path
         end
     end
 
@@ -67,8 +65,7 @@ class UsersController < ApplicationController
     end
 
      def correct_user
-         redirect_to(root_path) unless (current_user== @user||
-         current_user.is_admin=true)
+         redirect_to(root_path) unless (current_user == @user)
      end
 
      def user_params
