@@ -28,10 +28,7 @@ class SeatsController < ApplicationController
         @seat.user = current_user
         @seat.update(user: current_user)
         @tables = Table.all()
-          # redirect_to tables_path
-        # else
-        #   redirect_to tables_path
-        
+   
         render "tables/index"
     end
 

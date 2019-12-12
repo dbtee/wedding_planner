@@ -5,26 +5,39 @@
 <div class="index-body">
 <h1 class="guest-index-h1">Seating Plan</h1>
 <div class="seating-letterhead"></div>
+<br>
+<br>
 <h3>Choose a seat</h3>
 <br>
-
+<br>
 <% if current_user.is_admin? %>
 
   <%= form_with(model: @table, local: true, class: "table-form") do |form| %>
 
     <div class="label-field-wrap">
-        <%= form.label :number, 'Label', class: "table-label" %>
-        <%= form.select :number, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], {}, {:class => "label-select"} %>
+        <%= form.label :tcount, 'Tables', class: "table-label" %>
+        <%= form.select :tcount, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], {}, {:class => "label-select"} %>
         <br>
     </div>
 
+    <div class="label-field-wrap">
+      <%= form.label :scount, 'Seats', class: "table-label" %>
+      <%= form.select :scount, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], {}, {:class => "label-select"} %>
+      <br>
+    </div>
 
     <%= button_tag(type: 'submit', class: "create-table-btn") do %>
     Create Table
     <% end %>
+<% end %>
+<br>
+  <%= link_to 'Delete All', [:destroy_all, :tables], method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %> 
+
+</div>
+
+<% if current_user.is_admin? %>
 
 <% end %>
-</div>
 
 <div class="map-container">
 <% end %>
@@ -70,7 +83,7 @@
            
     <% end %>
 <% end %>
-    <div class="table-space"><h3 class="table-title">Table <%= table.number %></h3>
+    <div class="table-space"><h3 class="table-title">Table <%= table.number + 1 %></h3>
 
     <% if current_user.is_admin? %>
             <%= link_to 'Delete', table, method: :delete, data: { confirm: 'Are you sure?' }, class: "delete-btn" %> 

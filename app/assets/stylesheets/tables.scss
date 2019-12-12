@@ -36,6 +36,8 @@
     border: solid transparent .5px;
     transition: border 1s;
     text-decoration: none;
+    margin-left: 1em;
+    cursor: pointer;
 }
 
 .create-table-btn:hover {
@@ -47,10 +49,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    padding: 3em;
+    padding: 2em;
+    margin-left: 54px;
     justify-content: center;
-    min-width: 1000px;
-    height: fit-content;
+
 }
 
 .table {
@@ -64,11 +66,10 @@
     background-color: white;
     border: 3px solid pink;
     border-radius: 75px;
-    padding-left: 2.4em;
-    padding-right: 2em;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: 1em;
     margin: 3em;
+    align-items: center;
+    justify-items: center;
 }
 
 .seating-h1 {

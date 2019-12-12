@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 
   resources :users
 
+  
+
   resources :tables do
+    collection do
+      delete :destroy_all
+    end
     resources :seats
   end
 

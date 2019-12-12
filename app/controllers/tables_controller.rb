@@ -13,23 +13,17 @@ def new
 end
 
 def create
-    # byebug
 
-    @table = Table.new table_params
+    params[:tcount].to_i.times do
+       @table = Table.create(number: Table.all.length)
 
-    if @table.save && current_user.is_admin=true
-        flash[:notice] = 'Table successfully added.'
-        
-        for i in 1..12 do
+
+        for i in 1..params[:scount].to_i do
             Seat.create(number: i, table_id: @table.id)
         end
-        
 
-        redirect_to tables_path
-    else
-        redirect_to tables_path
     end
-
+    redirect_to tables_path
 end
 
 
@@ -42,15 +36,27 @@ def destroy
 
     else
         flash[:notice] = 'Only admin is authorized to do this.'
-            redirect_to(tables_path)
+        redirect_to(tables_path)
     end
 end
+
+def destroy_all
+    @tables = Table.all
+    if (current_user.is_admin?)
+        @tables.destroy_all
+        flash[:notice] = "All tables removed from the table list."
+        redirect_to tables_path
+    else
+        flash[:notice] = 'Only admin is authorized to do this.'
+        redirect_to(tables_path)
+    end
+end
+    
 ###############################################################
 private
 
-def table_params
-    params.permit(:number)
-end
+
+
 
 
 end

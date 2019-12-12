@@ -215,7 +215,7 @@
     flex-direction: column;
     align-items: flex-start;
     grid-row-start: 3;
-    grid-row-end: 6;
+    grid-row-end: 5;
     grid-column-start: 3;
     grid-column-end: 7;
     padding-top: 5vw;
@@ -280,7 +280,13 @@
 }
 //////////////// Contact Form ///////////////////
 .cf {
+    margin-top: 1vw;
     margin-left: 2em;
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 5;
+    grid-column-end: 7;
+    font-size: 1vw;
 }
 
 #input-message {
